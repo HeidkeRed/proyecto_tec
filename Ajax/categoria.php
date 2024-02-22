@@ -1,4 +1,5 @@
 <?php
+require_once('../modelos/Categoria.php');
 $categoria = new Categoria();
 
 $idcategoria = isset($_POST["idcategoria"]) ? limpiarCadena($_POST["idcategoria"]) : "";
@@ -14,18 +15,18 @@ switch ($_GET["op"]) {
             $rspta = $categoria->editar($idcategoria, $nombre, $descripcion);
             echo $rspta ? "Categoria actualizada" : "Categoria no se pudo actualizar";
         }
-        break;
+    break;
 
     case 'desactivar':
         $rspta = $categoria->desactivar($idcategoria);
         echo $rspta ? "Categoria desactivada" : "Categoria no se pudo desactivar";
-        break;
+    break;
 
     case 'mostrar':
         $rspta = $categoria->mostrar($idcategoria);
         //codificar con json
         echo json_encode($rspta);
-        break;
+    break;
 
     case 'listar':
         $rspta = $categoria->listar();
@@ -51,6 +52,6 @@ switch ($_GET["op"]) {
         );
         echo json_encode($results);
 
-        break;
+    break;
 }
 ?>

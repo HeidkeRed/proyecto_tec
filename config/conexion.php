@@ -27,7 +27,7 @@ if (!function_exists('ejecutarConsulta')) {
         return $row;
     }
 
-    function ejecutarConsulta_retornarID($sql) // Aquí estaba el error
+    function ejecutarConsulta_retornarID($sql)
     {
         global $conn;
         $query = $conn->query($sql);
@@ -41,7 +41,4 @@ if (!function_exists('ejecutarConsulta')) {
         return htmlspecialchars($str);
     }
 }
-
-// Cerrar conexión
-$conn->close();
 ?>

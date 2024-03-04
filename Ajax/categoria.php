@@ -1,4 +1,5 @@
 <?php
+require_once("../modelos/Categoria.php");
 $categoria = new Categoria();
 
 $idcategoria = isset($_POST["idcategoria"]) ? limpiarCadena($_POST["idcategoria"]) : "";

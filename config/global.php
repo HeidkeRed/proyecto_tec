@@ -1,7 +1,7 @@
 <?php
 
 // Definir la constante para la dirección IP del servidor de base de datos
-define("DB_HOST", "127.0.0.1:33065");
+define("DB_HOST", "127.0.0.1");
 
 // Definir la constante para el nombre de la base de datos
 define("DB_NAME", "xd");

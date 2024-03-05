@@ -44,7 +44,7 @@ function listar() {
             'pdfHtml5'
         ],
         "ajax": {
-            url: '../Ajax/categoria.php?op=listar',
+            url: '../ajax/categoria.php?op=listar',
             type: "GET",
             dataType: "json",
             error: function(e) {

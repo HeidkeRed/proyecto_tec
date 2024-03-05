@@ -8,9 +8,9 @@
 <body>
     <div>
         <h2>Formulario de Registro</h2>
-        <form action="recibe.php" method="post">
+        <form action="validar_envio.php" method="GET">
             <input type="text" name="nombre" placeholder="Ingrese su nombre"><br><br>
-            <input type="submit" value="Enviar"><br><br>
+            <input type="submit" name="submit_registro" value="Enviar"><br><br>
             <input type="radio" name="sexo" id="hombre" value="hombre">
             <label for="hombre">Hombre</label>
             <input type="radio" name="sexo" id="mujer" value="mujer">

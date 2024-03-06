@@ -21,9 +21,28 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- centro -->
-                    <div class="panel-body table-responsive" style="height: 400px;" id="listadoregistros">
-                        
+                    <div class="panel-body table-responsive" id="listadoregistros">
+                        <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
+                          <thead>
+                            <th>Opciones</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                          <tfoot>
+                            <th>Opciones</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>
+                          </tfoot>
+                    
+                        </table>
                     </div>
+                    <div class="panel-body" style="height: 400px;" id="formularioregirstro">
+                    xd
+                  </div>
                     <!--Fin centro -->
                   </div><!-- /.box -->
               </div><!-- /.col -->
@@ -36,5 +55,6 @@
   <?php 
   require_once("footer.php");
   ?>
+  <script type="text/javascript" src="scripts/categoria.js"></script>
 
  

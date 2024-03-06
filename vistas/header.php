@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="../public/css/_all-skins.min.css">
     <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/favicon.ico">
+    <!-- DATATABLES -->
+    <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.dataTables.min.css">
+    <link href="../public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="../public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
 
   </head>
   <body class="hold-transition skin-blue-light sidebar-mini">

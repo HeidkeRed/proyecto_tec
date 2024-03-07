@@ -12,12 +12,13 @@
     <script src="../public/js/app.min.js"></script>
 
     <!--DATATABLES-->
-    <script src="../public/datatables/jquery.dataTables.min.js"></script>
-    <script src="../public/datatables/dataTables.buttond.min.js"></script>
-    <script src="../public/datatables/buttons.html5.min.js"></script>
-    <script src="../public/datatables/buttons.colVis.min.js"></script>
-    <script src="../public/datatables/pdfmake.min.js"></script>
-    <script src="../public/datatables/vfs_fonts.js"></script>
+    <script src="../public/datatables/datatables/jquery.dataTables.min.js"></script>
+    <script src="../public/datatables/datatables/dataTables.buttons.min.js"></script>
+    <script src="../public/datatables/datatables/buttons.html5.min.js"></script>
+    <script src="../public/datatables/datatables/buttons.colVis.min.js"></script>
+    <script src="../public/datatables/datatables/jszip.min.js"></script>
+    <script src="../public/datatables/datatables/pdfmake.min.js"></script>
+    <script src="../public/datatables/datatables/vfs_fonts.js"></script>
     
     </body>
 </html>

@@ -28,15 +28,17 @@ switch ($_GET["op"]) {
         $rspta = $categoria->listar();
         $data = array();
         while ($reg = $rspta->fetch_object()) {
+            $idcategoria = isset($reg->idcategoria) ? $reg->idcategoria : "";
             $data[] = array(
-                "0" => ($reg->condicion) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
-                                                '<button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>' :
-                                            '<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>',
+                "0" => ($reg->condicion) ? '<button class="btn btn-warning" onclick="mostrar('.$idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+                                                '<button class="btn btn-danger" onclick="desactivar('.$idcategoria.')"><i class="fa fa-close"></i></button>' :
+                                            '<button class="btn btn-warning" onclick="mostrar('.$idcategoria.')"><i class="fa fa-pencil"></i></button>',
                 "1" => $reg->nombre,
                 "2" => $reg->descripcion,
                 "3" => ($reg->condicion) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
             );
         }
+        
         $results = array(
             "sEcho" => 1,
             "iTotalRecords" => count($data),

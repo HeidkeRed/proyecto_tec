@@ -24,13 +24,11 @@ function mostrarform(flag) {
         $("#formularioregistros").hide();  // Ocultar el formulario
     }
 }
-
 //Función para cancelar el formulario
 function cancelarform() {
     limpiar();
     mostrarform(false);  // Mostrar la lista de registros
 }
-
 //Función para listar los registros
 function listar() {
     tabla = $('#tbllistado').DataTable({
@@ -55,7 +53,6 @@ function listar() {
         "pageLength": 5,
         "order": [[0, "desc"]]
     }); 
-    
 function guardaryeditar(e)
 {
     e.preventDefault();

@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/favicon.ico">
     <!-- DATATABLES -->
-    <link rel="stylesheet" type="text/css" href="../public/datatables/datatablesjquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/datatables/datatables/jquery.dataTables.min.css">
     <link href="../public/datatables/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
     <link href="../public/datatables/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
 

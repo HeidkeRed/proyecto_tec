@@ -1,10 +1,10 @@
+
 <?php 
   require'header.php';
 ?>
 <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -33,11 +33,22 @@
                             <th>Descripcion</th>
                             <th>Estado</th>
                           </tfoot>
-                    
                         </table>
                     </div>
                     <div class="panel-body" style="height: 400px;" id="formularioregirstro">
-                    xd
+                      <form name="formulario" id="formulario" method="POST">
+                        <div class="form-group col-lg-6 com-md-6 col-sm-6 col-xs-12">
+                          <label>NOMBRE:</label>
+                          <input type="hidden" name="idcategoria" id="idcategoria">
+                          <input type="text" class="form-control" name="nombre" id="nombre" maxlength="50" placeholder="Nombre" required>
+                        </div>
+                        <div class ="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>
+                          GUARDAR</button>
+                          <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i>
+                          CANCELAR</button>
+                        </div>
+                      </form>
                   </div>
                     <!--Fin centro -->
                   </div><!-- /.box -->
@@ -47,7 +58,6 @@
 
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
-
   <?php 
   require'footer.php';
   ?>

@@ -12,7 +12,6 @@ function limpiar() {
     $("#descripcion").val("");
     $("#idcategoria").val("");
 }
-
 //Función para mostrar u ocultar el formulario
 function mostrarform(flag) {
     limpiar();

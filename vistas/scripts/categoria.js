@@ -54,7 +54,30 @@ function listar() {
         "destroy": true,
         "pageLength": 5,
         "order": [[0, "desc"]]
-    });    
+    }); 
+    
+function guardaryeditar(e)
+{
+    e.preventDefault();
+    $("#btnGuardar").prop("disabled",true);
+    var formData = new FormData($("#formulario")[0]);
+
+    $.ajax({
+        url: "../ajax/categoria.php?op=guardaryeditar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+
+        success: function(daots)
+        {
+            bootbox.alert(datos);
+            mostrarform(false);
+            tabla.ajax.reload();
+        }
+    });
+    limpiar();
+}    
 }
 
 init();

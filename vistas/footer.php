@@ -1,4 +1,5 @@
 <footer class="main-footer">
+ 
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
@@ -19,6 +20,7 @@
     <script src="../public/datatables/datatables/jszip.min.js"></script>
     <script src="../public/datatables/datatables/pdfmake.min.js"></script>
     <script src="../public/datatables/datatables/vfs_fonts.js"></script>
-    <script src= "../public/js/bootbox.min.js"></script>
+    
+    <script src="../public/js/bootbox/bootbox.min.js"></script>
     </body>
 </html>

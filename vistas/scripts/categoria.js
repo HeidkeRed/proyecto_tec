@@ -1,41 +1,39 @@
 var tabla;
 
-// Función que se ejecuta al inicio
+//Función que se ejecuta al inicio
 function init() {
     mostrarform(false);
     listar();
 
-    $("#formulario").on("submit", function(e) {
+    $("#formulario").on("submit", function(e)
+    {
         guardaryeditar(e);
     });
 }
 
-// Función para limpiar los campos del formulario
+//Función para limpiar los campos del formulario
 function limpiar() {
     $("#nombre").val("");
     $("#descripcion").val("");
     $("#idcategoria").val("");
 }
-
-// Función para mostrar u ocultar el formulario
+//Función para mostrar u ocultar el formulario
 function mostrarform(flag) {
     limpiar();
     if (flag) {
         $("#listadoregistros").hide();
-        $("#formularioregistros").show();
+        $("#formularioregistros").show();  
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
+        $("#listadoregistros").show();  // Mostrar la lista de registros
+        $("#formularioregistros").hide();  // Ocultar el formulario
     }
 }
-
-// Función para cancelar el formulario
+//Función para cancelar el formulario
 function cancelarform() {
     limpiar();
-    mostrarform(false);
+    mostrarform(false);  // Mostrar la lista de registros
 }
-
-// Función para listar los registros
+//Función para listar los registros
 function listar() {
     tabla = $('#tbllistado').DataTable({
         "processing": true,
@@ -52,19 +50,17 @@ function listar() {
             type: "GET",
             dataType: "json",
             error: function(e) {
-                bootbox.alert("Error al cargar datos: " + e.responseText);
+                console.log(e.responseText);
             }
         },
         "destroy": true,
         "pageLength": 5,
         "order": [[0, "desc"]]
-    });
-}
-
-// Función para guardar o editar un registro
-function guardaryeditar() {
+    }); }
+function guardaryeditar(e)
+{
     e.preventDefault();
-    $("#btnGuardar").prop("disabled", true);
+    $("#btnGuardar").prop("disabled",true);
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
@@ -74,13 +70,14 @@ function guardaryeditar() {
         contentType: false,
         processData: false,
 
-        success: function(datos) {
+        success: function(datos)
+        {
             bootbox.alert(datos);
             mostrarform(false);
             tabla.ajax.reload();
         }
     });
     limpiar();
-}
+}    
 
 init();

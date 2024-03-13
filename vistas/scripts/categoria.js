@@ -47,7 +47,7 @@ function listar() {
         ],
         "ajax": {
             url: '../ajax/categoria.php?op=listar',
-            type: "GET",
+            type: "get",
             dataType: "json",
             error: function(e) {
                 console.log(e.responseText);
@@ -57,27 +57,29 @@ function listar() {
         "pageLength": 5,
         "order": [[0, "desc"]]
     }); }
-function guardaryeditar(e)
-{
-    e.preventDefault();
-    $("#btnGuardar").prop("disabled",true);
-    var formData = new FormData($("#formulario")[0]);
-
-    $.ajax({
-        url: "../ajax/categoria.php?op=guardaryeditar",
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-
-        success: function(datos)
-        {
-            bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
-        }
-    });
-    limpiar();
-}    
+    function guardaryeditar(e) {
+        e.preventDefault();
+        $("#btnGuardar").prop("disabled", true);
+        var formData = new FormData($("#formulario")[0]);
+    
+        $.ajax({
+            url: "../ajax/categoria.php?op=guardaryeditar",
+            type: "POST", // Cambiado a POST
+            data: formData,
+            contentType: false,
+            processData: false,
+    
+            success: function(datos) {
+                bootbox.alert(datos);
+                mostrarform(false);
+                tabla.ajax.reload();
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+        limpiar();
+    }
+       
 
 init();

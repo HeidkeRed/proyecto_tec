@@ -1,51 +1,71 @@
 <?php
-require_once("../modelos/Categoria.php");
-$categoria = new Categoria();
+require_once('../modelos/Categoria.php');
+$categoria=new Categoria();
+$idcategoria=isset($_POST["idcategoria"])? limpiarCadena($_POST["idcategoria"]):"";
+$nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
+$descripcion=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
 
-$idcategoria = isset($_POST["idcategoria"]) ? limpiarCadena($_POST["idcategoria"]) : "";
-$nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
-$descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"]) : "";
-switch ($_GET["op"]) {
+switch($_GET["op"]){
     case 'guardaryeditar':
-        if (empty($idcategoria)) {
-            $rspta = $categoria->insertar($nombre, $descripcion);
-            echo $rspta ? "Categoria registrada" : "Categoria no se pudo registrar";
-        } else {
-            $rspta = $categoria->editar($idcategoria, $nombre, $descripcion);
-            echo $rspta ? "Categoria actualizada" : "Categoria no se pudo actualizar";
+        if (empty($idcategoria)){
+            $rspta=$categoria->insertar($nombre,$descripcion);
+            echo $rspta? "categoria registrada": "categoria no se pudo registrar";
+
+        }
+        else{
+            $rspta=$categoria->editar($idcategoria,$nombre,$descripcion);
+            echo $rspta? "categoria actualizada":"categoria no se pudo actualizar";
+
         }
         break;
-    case 'desactivar':
-        $rspta = $categoria->desactivar($idcategoria);
-        echo $rspta ? "Categoria desactivada" : "Categoria no se pudo desactivar";
-        break;
-    case 'mostrar':
-        $rspta = $categoria->mostrar($idcategoria);
-        //codificar con json
-        echo json_encode($rspta);
-        break;
-    case 'listar':
-        $rspta = $categoria->listar();
-        $data = array();
-        while ($reg = $rspta->fetch_object()) {
-            $idcategoria = isset($reg->idcategoria) ? $reg->idcategoria : "";
-            $data[] = array(
-                "0" => ($reg->condicion) /*? '<button class="btn btn-warning" onclick="mostrar('.$idcategoria.')"><i class="fa fa-pencil"></i></button>'.
-                                                '<button class="btn btn-danger" onclick="desactivar('.$idcategoria.')"><i class="fa fa-close"></i></button>' :
-                                            '<button class="btn btn-warning" onclick="mostrar('.$idcategoria.')"><i class="fa fa-pencil"></i></button>'*/,
-                "1" => $reg->nombre,
-                "2" => $reg->descripcion,
-                "3" => ($reg->condicion) //? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
-            );
-        }
-        
-        $results = array(
-            "sEcho" => 1,
-            "iTotalRecords" => count($data),
-            "iTotalDisplayRecords" => count($data),
-            "aaData" => $data
-        );
-        echo json_encode($results);
-        break;
+    
+
+
+        case 'desactivar':
+            $rspta=$categoria->eliminar($idcategoria);
+            echo $rspta ? "categoria desactivada": "categoria no se puede desactivar";
+            break;
+            break;
+
+            case 'activar':
+                $rspta=$categoria->activar($idcategoria);
+                echo $rspta? "categoria activada": "categoria no se puede activar";
+                break;
+                break;
+
+
+                case 'mostrar':
+                    $rspta=$categoria->mostrar($idcategoria);
+                    //codificar el resultado utilizando json
+                    echo json_encode($rspta);
+                    break;
+                    break;
+
+                    case 'listar':
+
+                        $rspta=$categoria->listar();
+                        //vamos a delcarar un array
+                        $data=array();
+
+                        while ($reg=$rspta->fetch_object()){
+                            $data[]=array(
+                                "0"=>($reg->idcategoria),
+
+    "1"=>$reg->nombre,
+    "2"=>$reg->descripcion,
+    "3"=>($reg->condicion)
+    );
+
 }
+$results =array(
+    "sEcho"=>1,
+    "iTotalRecords"=>count($data),
+    "iTotalDisplayRecords"=>count($data),
+    "aaData"=> $data);
+
+    echo json_encode($results);
+    break;
+
+}
+
 ?>
